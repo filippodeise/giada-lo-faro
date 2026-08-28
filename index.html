@@ -229,6 +229,10 @@ figcaption{
   margin-top:auto;padding-top:22px;border-top:1px solid var(--line);
   font-size:.8rem;letter-spacing:.08em;color:var(--jade-soft);
 }
+.card .btn{
+  margin-top:22px;align-self:flex-start;padding:13px 30px;font-size:.76rem;
+}
+@media(max-width:759px){.card .btn{width:100%;text-align:center}}
 
 /* specifiche */
 .speclist{margin:34px 0 0;padding:0;list-style:none;border-top:1px solid var(--line)}
@@ -245,6 +249,32 @@ figcaption{
   max-width:var(--read);
 }
 .note p{font-family:"Cormorant Garamond",serif;font-size:1.3rem;font-style:italic;color:var(--jade);line-height:1.6}
+
+/* elenco moduli */
+.modlist{margin-top:34px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.modlist summary{
+  cursor:pointer;list-style:none;padding:20px 0;
+  display:flex;align-items:baseline;justify-content:space-between;gap:20px;
+  font-family:"Cormorant Garamond",serif;font-size:1.25rem;color:var(--jade);
+}
+.modlist summary::-webkit-details-marker{display:none}
+.modlist summary .when{
+  font-family:"Jost",sans-serif;font-size:.72rem;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--jade-soft);
+}
+.modlist summary:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.modlist .body{padding:0 0 22px}
+ol.mods{margin:0;padding:0;list-style:none;counter-reset:m;columns:2;column-gap:34px}
+@media(max-width:640px){ol.mods{columns:1}}
+ol.mods li{
+  counter-increment:m;font-size:.94rem;line-height:1.7;padding:5px 0 5px 32px;
+  position:relative;break-inside:avoid;
+}
+ol.mods li::before{
+  content:counter(m,decimal-leading-zero);
+  position:absolute;left:0;top:5px;
+  font-family:"Cormorant Garamond",serif;font-style:italic;color:var(--gold);font-size:.95rem;
+}
 
 /* seminari */
 .sem{margin-top:46px;border-top:1px solid var(--line)}
@@ -443,7 +473,7 @@ dialog.sheet::backdrop{background:rgba(31,48,39,.62)}
     <div class="wrap">
       <p class="eyebrow">Consapevolezza · Svizzera</p>
       <h1>C'è un luogo, dentro di voi, che nessuna difficoltà ha potuto toccare.</h1>
-      <p class="hero-sub">Il cammino della Consapevolezza è il modo per tornare a sentirlo. Non una promessa: una Scelta che vi appartiene.</p>
+      <p class="hero-sub">Il cammino della Consapevolezza è il modo per tornare a sentirlo. Non una promessa: una scelta che vi appartiene.</p>
       <div class="btn-row">
         <a class="btn btn-fill-light" href="#percorsi">I percorsi</a>
         <a class="btn btn-light" href="#contatti">Scrivetemi</a>
@@ -460,8 +490,8 @@ dialog.sheet::backdrop{background:rgba(31,48,39,.62)}
       <h2>Vi aspettano la vostra Natura, la vostra Forza, la vostra Verità.</h2>
       <p class="lead" style="margin-top:32px">A volte la strada si perde. Il corpo si irrigidisce, l'ansia prende la parola, e non sapete più bene chi siete o come ritrovarvi.</p>
       <p>Se sentite il Desiderio di andare al vostro Incontro, siete i Benvenuti.</p>
-      <p>Non esiste nessuno che possa guarire al vostro posto. Esiste chi può stare accanto a voi mentre lo fate: con Ascolto attento, senza giudizio, in uno spazio sicuro dove potervi accogliere così come siete.</p>
-      <p class="italic" style="font-size:1.3rem;margin-top:30px">Un Sostegno concreto. Non promesse.</p>
+      <p>Non esiste nessuno che possa guarire al vostro posto. Esiste chi può stare accanto a voi mentre lo fate, accompagnandovi con Ascolto attento, senza giudizio, in uno spazio sicuro dove potervi accogliere così come siete.</p>
+      <p class="italic" style="font-size:1.3rem;margin-top:30px">Un sostegno autentico. Non promesse.</p>
     </div>
   </div>
 
@@ -512,9 +542,9 @@ dialog.sheet::backdrop{background:rgba(31,48,39,.62)}
     <div class="split split--narrow">
       <div class="reveal">
         <p class="eyebrow">Visione e Metodo</p>
-        <h2>Il sintomo racconta. La Causa parla più piano.</h2>
+        <h2>Il sintomo racconta. La causa parla più piano.</h2>
         <p style="margin-top:30px">Una contrattura che non passa, un'ansia che torna sempre alla stessa ora: raramente sono soltanto corpo. Sono una struttura costruita nel tempo, che chiede di essere riconosciuta.</p>
-        <p>Il lavoro passa dal tatto, dall'Energia, dal dialogo e dalla Meditazione. Non insegna nulla di nuovo: riporta alla luce Risorse che sono già vostre.</p>
+        <p>Il lavoro passa dalla Consapevolezza, dal tatto, dal dialogo e dalla Meditazione. Riporta alla luce Risorse che sono già vostre.</p>
         <p>Le radici di questo cammino sono nella tradizione tibetana, in venticinque anni di lavoro sul corpo e in una ricerca interiore che continua ancora.</p>
       </div>
       <div class="split-media reveal">
@@ -540,24 +570,28 @@ dialog.sheet::backdrop{background:rgba(31,48,39,.62)}
         <h3>Seduta di Consapevolezza</h3>
         <p>Un incontro individuale, online o in presenza. Si guarda insieme ciò che c'è, al ritmo che serve a voi. Può restare un incontro unico o diventare un cammino.</p>
         <p class="cost">Seduta singola · <span class="ph">100 CHF</span></p>
+        <a class="btn btn-ghost" href="#contatti" data-pick="Seduta di consapevolezza">Prenota</a>
       </div>
       <div class="card reveal">
         <span class="n">ii</span>
         <h3>Il Percorso completo</h3>
         <p>Dodici moduli registrati e sei incontri con me, distribuiti su tre mesi. Un cammino strutturato per riconoscere l'origine dell'ansia e tornare a fidarvi di voi.</p>
         <p class="cost">Percorso di tre mesi · <span class="ph">1.000 CHF</span></p>
+        <a class="btn btn-ghost" href="#contatti" data-pick="Percorso completo — 12 moduli + 6 incontri">Prenota</a>
       </div>
       <div class="card reveal">
         <span class="n">iii</span>
         <h3>La Formazione</h3>
-        <p>Il percorso di formazione a week-end, per chi vuole approfondire l'accompagnamento e le pratiche di Consapevolezza. Le iscrizioni sono aperte per il <b style="font-weight:400">terzo ciclo</b>. <span class="ph">[temi, a chi si rivolge, numero di week-end e date]</span></p>
-        <p class="cost">Ciclo completo · 4.860 CHF<br>540 CHF all'inizio di ogni week-end</p>
+        <p>Il percorso di formazione a week-end, per chi vuole approfondire l'accompagnamento e le pratiche di Consapevolezza.</p>
+        <p class="cost">4.860 CHF<br>540 CHF all'inizio di ogni week-end</p>
+        <a class="btn btn-ghost" href="#contatti" data-pick="Formazione">Prenota</a>
       </div>
       <div class="card reveal">
         <span class="n">iv</span>
         <h3>Seminari e Incontri</h3>
         <p>Giornate e incontri di gruppo su temi specifici: l'Ascolto, il respiro, la Meditazione, l'accoglienza di sé nella difficoltà. Il calendario si aggiorna nel tempo.</p>
         <p class="cost"><a class="link-inline" href="#seminari">Vedi il calendario</a></p>
+        <a class="btn btn-ghost" href="#contatti" data-pick="Seminari — informazioni">Prenota</a>
       </div>
     </div>
   </div>
@@ -574,10 +608,31 @@ dialog.sheet::backdrop{background:rgba(31,48,39,.62)}
           <li><b>Moduli</b><span>12 registrazioni, teoria e pratica. Le ascoltate quando volete, anche più volte.</span></li>
           <li><b>Incontri</b><span>6 incontri individuali di un'ora, due al mese per tre mesi, in videochiamata.</span></li>
           <li><b>Meditazioni</b><span>Registrate da me, protette da diritto d'autore. Non si trovano altrove.</span></li>
-          <li><b>Lingue</b><span>Italiano. Se preferite, anche francese, tedesco o inglese.</span></li>
+          <li><b>Lingue di accompagnamento</b><span>Italiano. Se preferite, anche tedesco o inglese.</span></li>
           <li><b>Contributo</b><span><span class="ph">1.000 CHF</span> · Twint o bonifico · <a class="link-inline" href="#" data-open-sheet>termini e condizioni</a></span></li>
         </ul>
-        <div class="btn-row"><a class="btn btn-solid" href="#contatti">Iscrivetevi al percorso</a></div>
+        <div class="modlist">
+          <details>
+            <summary><span>I dodici moduli</span><span class="when">Titoli</span></summary>
+            <div class="body">
+              <ol class="mods">
+                <li>Non credere di poter guarire</li>
+                <li>Riconoscere e avvicinare il trauma</li>
+                <li><span class="ph">[Titolo modulo 3]</span></li>
+                <li><span class="ph">[Titolo modulo 4]</span></li>
+                <li><span class="ph">[Titolo modulo 5]</span></li>
+                <li><span class="ph">[Titolo modulo 6]</span></li>
+                <li><span class="ph">[Titolo modulo 7]</span></li>
+                <li><span class="ph">[Titolo modulo 8]</span></li>
+                <li><span class="ph">[Titolo modulo 9]</span></li>
+                <li><span class="ph">[Titolo modulo 10]</span></li>
+                <li><span class="ph">[Titolo modulo 11]</span></li>
+                <li><span class="ph">[Titolo modulo 12]</span></li>
+              </ol>
+            </div>
+          </details>
+        </div>
+        <div class="btn-row"><a class="btn btn-solid" href="#contatti" data-pick="Percorso completo — 12 moduli + 6 incontri">Prenota il percorso</a></div>
       </div>
       <div class="split-media reveal">
         <figure style="margin:0">
@@ -649,12 +704,11 @@ dialog.sheet::backdrop{background:rgba(31,48,39,.62)}
       <div class="reveal">
         <p class="eyebrow">Approfondire</p>
         <h2>Giada Lo Faro</h2>
-        <p style="margin-top:28px">Sono nata in Italia nel 1983 e cresciuta in Svizzera. Ho scelto di prestare il mio servizio qui, in un paesino tra le montagne, dentro la natura.</p>
-        <p>Nel 2000 mi diplomo: da lì nasce, poco a poco, la mia passione per la cura interiore. Negli anni arrivano le esperienze, le certificazioni e i diplomi per accompagnare le persone nel proprio cammino spirituale, attraverso l'accompagnamento, le meditazioni e le pratiche di Consapevolezza. Continuo ad aggiornarmi presso una scuola svizzera specializzata in accompagnamento.</p>
-        <p>Ho compiuto diversi viaggi in Asia. L'ultimo in Himalaya, dove mi sono specializzata con un cammino e un ritiro di diciassette giorni a 5.400 metri.</p>
-        <p>Da venticinque anni sono specializzata in tecniche di massaggio, con formazioni in diverse parti del mondo. Offro un servizio di guida di Consapevolezza, di massaggi e di yoga.</p>
-        <p>Da anni dedico la mia ricerca a chi aspira alla guarigione interiore e alla salute. Ho seguito diverse filosofie per la pratica interiore ed esteriore, di mente e di corpo, fino a trovare la dimensione in cui si comprende una cosa semplice: la nostra Natura aspira già a un Equilibrio.</p>
-        <p class="italic" style="font-size:1.24rem;line-height:1.6">L'equilibrio si trova nel mezzo, e il corpo aspira sempre a questo. Nel rispetto di noi stessi, della nostra storia e della nostra vita: della nostra Natura verso il nostro potenziale, la Pace, la realizzazione personale e la Guarigione.</p>
+        <p style="margin-top:28px">Sono Giada Lo Faro, guida di consapevolezza e massaggiatrice di cura da venticinque anni.</p>
+        <p>Fin da piccola sono sempre stata attratta dall'essere umano. Passavo il tempo a osservare le persone, come se dovessi capire la differenza tra l'una e l'altra. Mi incantava la bellezza di quella differenza.</p>
+        <p>Con gli anni mi sono interessata ai diversi approcci all'essere umano, e soprattutto a una prospettiva: possiamo davvero uscire dalla sofferenza.</p>
+        <p>Ho attraversato momenti molto difficili, dove solo il coraggio e la fede nella guarigione mi hanno permesso di superare muri che non pensavo nemmeno esistessero.</p>
+        <p>Venticinque anni di studio mi hanno portata prima al massaggio, poi alla consapevolezza e alla meditazione. Oggi mi occupo dell'Ascolto e dell'accompagnamento delle persone, attraverso l'amore e la cura che ho per loro: aiutandole ad attivare le proprie Risorse interiori verso il potenziale naturale di guarigione che ognuno già possiede.</p>
         <p class="quiet" style="margin-top:26px">Massaggi, trattamenti del corpo e il Centro Risveglio: <a class="link-inline" href="https://centrorisveglio.com" target="_blank" rel="noopener">centrorisveglio.com</a></p>
       </div>
     </div>
@@ -711,7 +765,7 @@ dialog.sheet::backdrop{background:rgba(31,48,39,.62)}
               <option value="">Scegliete…</option>
               <option value="Seduta di consapevolezza">Seduta di Consapevolezza</option>
               <option value="Percorso completo — 12 moduli + 6 incontri">Il Percorso completo</option>
-              <option value="Formazione — terzo ciclo (4.860 CHF)">La Formazione — terzo ciclo</option>
+              <option value="Formazione">La Formazione</option>
               <option value="Seminari — informazioni">Seminari e incontri</option>
               <option value="Solo informazioni">Vorrei solo informazioni</option>
             </select>
@@ -765,15 +819,7 @@ dialog.sheet::backdrop{background:rgba(31,48,39,.62)}
       <p style="margin-bottom:0">Causale: nome e cognome + nome del percorso o del seminario.</p>
     </div>
 
-    <h4>La Formazione — terzo ciclo</h4>
-    <ul>
-      <li>L'iscrizione è valida per il <b style="font-weight:400">terzo ciclo</b> della formazione.</li>
-      <li>Il costo totale del corso è di <b style="font-weight:400">4.860 CHF</b>.</li>
-      <li><b style="font-weight:400">Modalità di pagamento:</b> 540 CHF il primo giorno di ogni week-end.</li>
-      <li><b style="font-weight:400">Annullamento:</b> in caso di annullamento da parte vostra è richiesta la somma totale, ossia 4.860 CHF.</li>
-    </ul>
-
-    <h4>Percorsi, sedute e seminari</h4>
+    <h4>Percorsi, sedute, seminari e formazione</h4>
     <ul>
       <li>L'iscrizione si considera richiesta all'invio del modulo e confermata quando ricevete la mail di conferma.</li>
       <li>Il posto è riservato quando il pagamento risulta ricevuto.</li>
@@ -874,6 +920,15 @@ dialog.sheet::backdrop{background:rgba(31,48,39,.62)}
   /* ⚠ DA CONFIGURARE: URL del servizio che recapita la richiesta e invia la conferma
      (es. Web3Forms, Formspree, Brevo). Finché resta vuoto il modulo non invia nulla. */
   var ENDPOINT = '';
+
+  /* i pulsanti "Prenota" preselezionano la proposta nel modulo */
+  var sel = document.getElementById('proposta');
+  document.querySelectorAll('[data-pick]').forEach(function(el){
+    el.addEventListener('click', function(){
+      var v = el.getAttribute('data-pick');
+      if(sel && [].some.call(sel.options, function(o){ return o.value === v; })){ sel.value = v; }
+    });
+  });
 
   var form = document.getElementById('leadForm'), shell = document.getElementById('formShell');
   form.addEventListener('submit', function(ev){
